@@ -1,3 +1,4 @@
+require 'yajl'
 module Leadspend
   module Parser
     class YajlParser

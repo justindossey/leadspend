@@ -1,3 +1,4 @@
+require 'active_support'
 module Leadspend
   module Parser
     class RailsParser

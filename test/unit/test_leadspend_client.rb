@@ -6,6 +6,22 @@ class Leadspend::TestLeadspendClient < Test::Unit::TestCase
    @client = Leadspend::Client.new(:username => 'test', :password => 'test')
  end
 
+ def test_yajl_backend
+   @client = Leadspend::Client.new(:username => 'test', :password => 'test', :json_parser => 'yajl')
+   verified_email="verified-200@example.com"
+   unknown_email="unknown-200@example.com"
+   assert @client.validate(verified_email)
+   assert @client.validate(unknown_email)
+ end
+
+ def test_rails_backend
+   @client = Leadspend::Client.new(:username => 'test', :password => 'test', :json_parser => 'rails')
+   verified_email="verified-200@example.com"
+   unknown_email="unknown-200@example.com"
+   assert @client.validate(verified_email)
+   assert @client.validate(unknown_email)
+ end
+
  def test_result_consistency
    verified_email="verified-200@example.com"
    unknown_email="unknown-200@example.com"
