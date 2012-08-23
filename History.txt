@@ -1,3 +1,6 @@
+=== 1.0.3 /2012-08-23
+* Added missing leadspend/parser.rb to Manifest, forced version bump
+
 === 1.0.2 / 2012-08-23
 * Moved username and password into options for client initialization
 
