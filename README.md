@@ -8,7 +8,7 @@ Use like so:
 ```ruby
   client = Leadspend::Client.new(:username => LEADSPEND_USERNAME, :password => LEADSPEND_PASSWORD, 
       :ca_file => CA_FILE, :timeout => 5)
-  is_valid_email = client.validate(params[:email) # true if verified or unknown, false otherwise
+  is_valid_email = client.validate(params[:email]) # true if verified or unknown, false otherwise
 ```
 If you want more information about the response, use something like
 

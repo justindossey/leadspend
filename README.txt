@@ -11,7 +11,7 @@ Leadspend client access library.
                                  :password => LEADSPEND_PASSWORD, 
                                  :ca_file => CA_FILE, 
                                  :timeout => 5)
-  is_valid_email = client.validate(params[:email) # true if verified or unknown, false otherwise
+  is_valid_email = client.validate(params[:email]) # true if verified or unknown, false otherwise
 
 == REQUIREMENTS:
 
