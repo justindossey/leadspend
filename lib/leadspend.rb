@@ -3,7 +3,7 @@
 # = Leadspend
 #   This (top-level) module contains constants based on the API specification.
 module Leadspend
-  VERSION = '1.0.2'
+  VERSION = '1.0.3'
   DEFAULT_SERVERS = %w{primary.api.leadspend.com secondary.api.leadspend.com}
   DEFAULT_VERSION = "v2"
   MIN_TIMEOUT = 3

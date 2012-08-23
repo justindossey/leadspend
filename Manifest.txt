@@ -7,6 +7,7 @@ lib/leadspend.rb
 lib/leadspend/exceptions.rb
 lib/leadspend/result.rb
 lib/leadspend/client.rb
+lib/leadspend/parser.rb
 lib/leadspend/parser/json_parser.rb
 lib/leadspend/parser/yajl_parser.rb
 lib/leadspend/parser/rails_parser.rb
