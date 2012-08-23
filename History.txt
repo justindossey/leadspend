@@ -1,0 +1,11 @@
+=== 1.0.1 / 2012-08-23
+* Added configurable JSON backends with reasonable defaults
+  * to use a particular backend, the supporting gem(s) must be installed (Yajl, JSON, Rails)
+* Added support for the "role", "timeout", "retry" extended attributes on results
+* Now using Hoe for gemspec
+* Added MIT-LICENSE
+
+=== 1.0.0 / 2012-08-22
+* Support for Leadspend API according to their spec documentation.
+  * unit tests require the fakeweb gem.
+
