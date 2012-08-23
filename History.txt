@@ -1,3 +1,6 @@
+=== 1.0.2 / 2012-08-23
+* Moved username and password into options for client initialization
+
 === 1.0.1 / 2012-08-23
 * Added configurable JSON backends with reasonable defaults
   * to use a particular backend, the supporting gem(s) must be installed (Yajl, JSON, Rails)
