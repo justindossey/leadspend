@@ -2,9 +2,9 @@ require 'rubygems'
 require 'fakeweb'
 require "#{File.dirname(__FILE__)}/../../../init"
 class Leadspend::Server
-  def initialize(username, password, opts={})
-    @username = username
-    @password = password
+  def initialize(opts={})
+    @username = opts[:username]
+    @password = opts[:password]
     options = opts
     @servers = options[:servers] || Leadspend::DEFAULT_SERVERS
     @api_version = options[:version] || Leadspend::DEFAULT_VERSION

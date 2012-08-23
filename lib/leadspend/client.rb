@@ -16,10 +16,15 @@ class Leadspend::Client
   # :timeout is the server-side timeout in seconds, between 3 and 15.  If a
   # result is not available within the timeout, the response will be an
   # "unknown" result.
-  def initialize(username, password, opts={})
+  def initialize(opts={})
     options = opts
     if defined?(HashWithIndifferentAccess)
       options = HashWithIndifferentAccess.new(opts)
+    end
+    @username = options[:username]
+    @password = options[:password]
+    if @username.nil? or @password.nil?
+      raise Leadspend::Exceptions::LeadspendException, "No username or password specified!"
     end
     @servers = options[:servers] || Leadspend::DEFAULT_SERVERS
     @api_version = options[:version] || Leadspend::DEFAULT_VERSION
@@ -30,21 +35,24 @@ class Leadspend::Client
     # set the JSON parser to use.  Use the one specified, or choose a reasonable default.
     case options[:json_parser]
     when 'yajl'
+      require "#{File.dirname(__FILE__)}/parser/yajl_parser"
       Leadspend::Result.json_parser=Leadspend::Parser::YajlParser
     when 'rails'
+      require "#{File.dirname(__FILE__)}/parser/rails_parser"
       Leadspend::Result.json_parser=Leadspend::Parser::RailsParser
     when 'json'
+      require "#{File.dirname(__FILE__)}/parser/json_parser"
       Leadspend::Result.json_parser=Leadspend::Parser::JSONParser
     else
       if defined? Rails
+        require "#{File.dirname(__FILE__)}/parser/rails_parser"
         Leadspend::Result.json_parser=Leadspend::Parser::RailsParser
       else
+        require "#{File.dirname(__FILE__)}/parser/json_parser"
         Leadspend::Result.json_parser=Leadspend::Parser::JSONParser
       end
     end
 
-    @username = username
-    @password = password
     @server_index = 0
 
     @request_options = {}

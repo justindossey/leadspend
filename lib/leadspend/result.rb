@@ -1,6 +1,7 @@
 require 'json'
 
 class Leadspend::Result
+  @@json_parser=nil
   def initialize(json_string)
     @raw = json_string
     @result = self.class.decode_json(json_string)
@@ -75,7 +76,13 @@ class Leadspend::Result
   end
 
   def self.json_parser
-    @@json_parser ||= Leadspend::Parser::JSONParser
+    if @@json_parser.nil?
+      unless defined?(Leadspend::Parser::JSONParser)
+        require "#{File.dirname(__FILE__)}/parser/json_parser"
+      end
+      @@json_parser = Leadspend::Parser::JSONParser
+    end
+    @@json_parser
   end
   
  

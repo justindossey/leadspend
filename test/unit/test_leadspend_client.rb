@@ -2,8 +2,8 @@ require "#{File.dirname(__FILE__)}/../mocks/leadspend/server"
 require 'test/unit'
 class Leadspend::TestLeadspendClient < Test::Unit::TestCase
  def setup
-   @server = Leadspend::Server.new('test', 'test')
-   @client = Leadspend::Client.new('test', 'test')
+   @server = Leadspend::Server.new(:username => 'test', :password => 'test')
+   @client = Leadspend::Client.new(:username => 'test', :password => 'test')
  end
 
  def test_result_consistency
